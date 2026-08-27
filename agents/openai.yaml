@@ -1,0 +1,4 @@
+interface:
+  display_name: "Trace Research Lineages"
+  short_description: "Analyze papers and reconstruct research lineages"
+  default_prompt: "Use $tracing-research-lineages to analyze this paper and trace its research lineage."
