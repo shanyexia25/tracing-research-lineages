@@ -6,23 +6,23 @@
 
 ## Feature Overview
 
-`tracing-research-lineages` analyzes a paper's research problem, core claims, experimental validation, and development lineage. It treats a paper as a claim-bearing research artifact rather than an isolated citation node, helping users answer the following questions:
+`tracing-research-lineages` analyzes a paper's research problem, core arguments, experimental validation, and development lineage. It treats a paper as a research artifact that presents arguments rather than an isolated citation node, helping users answer the following questions:
 
 | Capability | Description |
 | --- | --- |
-| Paper analysis | Extract the research problem, core claims, methods, and experimental setup |
-| Claim–experiment mapping | Connect major claims to data, models, baselines, metrics, and results |
+| Paper analysis | Extract the research problem, core arguments, methods, and experimental setup |
+| Argument–experiment mapping | Connect major arguments to data, models, baselines, metrics, and results |
 | Narrow-direction definition | Define a searchable direction as “object + mechanism/phenomenon + purpose,” with synonyms and exclusions |
 | Lineage search | Combine concept search with backward and forward citation tracing to find possible predecessors and follow-up work |
 | Core/adjacent screening | Separate papers that form the actual research line from papers that are only topically similar |
 | Timeline reconstruction | Order work by its earliest verifiable public date and merge preprint, conference, journal, and revision versions |
 | Innovation comparison | Explain the inherited basis, prior limitation, new increment, and relationship type for each core paper |
-| Uncertainty reporting | Distinguish direct evidence, analytical inference, and unsupported assumptions instead of claiming unqualified completeness |
+| Uncertainty reporting | Distinguish direct evidence, analytical inference, and unsupported assumptions instead of asserting unqualified completeness |
 
 ## Analysis Workflow
 
 1. Classify the evidence level from the available full text, abstracts, and metadata: `A`, `B`, or `C`.
-2. Extract the focal paper's research problem, core claims, and claim-to-experiment mapping.
+2. Extract the focal paper's research problem, core arguments, and argument-to-experiment mapping.
 3. Build a narrow-direction abstraction with the object, mechanism/phenomenon, purpose, synonyms, and exclusions.
 4. Search by concept first, then expand the candidate set through backward and forward citation tracing.
 5. Screen the candidate papers, keeping lineage-relevant work in the core timeline and moving broad, similar, survey, benchmark, or application work to adjacent work.
@@ -58,7 +58,7 @@ Recommended request format:
 Use $tracing-research-lineages to analyze this paper and trace its research lineage.
 
 Paper: <paper title, URL, uploaded file, or identifier>
-Focus: <optional research direction, method, dataset, or claim>
+Focus: <optional research direction, method, dataset, or argument>
 Cutoff: <optional search cutoff date>
 ```
 
@@ -66,9 +66,18 @@ You can also describe the paper, research direction, or comparison scope directl
 
 ## Deployment Guide
 
-This project is a Codex Skill, not a standalone web service. The repository has no Node.js, Python, database, port, or Docker runtime requirement. Deployment means placing the Skill directory in a path where Codex can discover it.
+### Option 1: Ask Codex to Install It (Recommended)
 
-### Option 1: Install Locally in Codex (Recommended)
+Send the following request in Codex:
+
+```text
+Use `$skill-installer` to install this Skill from the following GitHub repository:
+https://github.com/shanyexia25/tracing-research-lineages
+```
+
+After installation, start a new Codex session and invoke `$tracing-research-lineages`.
+
+### Option 2: Install Locally Manually (Optional)
 
 #### PowerShell
 
@@ -132,32 +141,6 @@ tracing-research-lineages/
     └── output-template.md
 ```
 
-### Option 2: Upload to the OpenAI Skills API (Optional)
-
-If you want to manage the Skill as an API Skill resource, package the Skill files as a ZIP and upload it through the Skills API. The official endpoint accepts either a Skill directory or a single ZIP file; see [Create a new skill](https://developers.openai.com/api/reference/python/resources/skills/methods/create).
-
-Example packaging command:
-
-```powershell
-Compress-Archive -Path SKILL.md, agents, references `
-  -DestinationPath tracing-research-lineages.zip -Force
-```
-
-Upload with the Python SDK:
-
-```python
-from openai import OpenAI
-
-client = OpenAI()
-
-with open("tracing-research-lineages.zip", "rb") as bundle:
-    skill = client.skills.create(files=bundle)
-
-print(skill.id)
-```
-
-This option requires `OPENAI_API_KEY` and a compatible version of the OpenAI Python SDK. It is not required for local Codex users.
-
 ## Project Structure
 
 ```text
@@ -174,7 +157,7 @@ tracing-research-lineages/
 
 ## Evidence and Limitations
 
-- Prefer full text and verified metadata. When only an abstract or secondary source is available, reduce the strength of the claims and state the downgrade explicitly.
+- Prefer full text and verified metadata. When only an abstract or secondary source is available, reduce the strength of the arguments and state the downgrade explicitly.
 - A research lineage is not simply a list of similar papers. Use strong labels such as `direct` or `continuation` only when primary records show a citation, explicit motivation, reused setup, or documented continuation.
 - Order the timeline by the earliest verifiable public version and list formal publication separately. Mark unresolved date conflicts explicitly.
 - “No predecessor found” does not mean “no predecessor exists.” Results are limited by full-text availability, search sources, query terms, and the cutoff date.

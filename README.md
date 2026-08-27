@@ -6,12 +6,12 @@
 
 ## 功能介绍
 
-`tracing-research-lineages` 用于分析一篇学术论文的研究问题、核心主张、实验验证和研究发展脉络。它把论文视为一个“承载主张的研究证据单元”，而不是孤立的引用节点，帮助用户回答以下问题：
+`tracing-research-lineages` 用于分析一篇学术论文的研究问题、核心论点、实验验证和研究发展脉络。它把论文视为一个“承载论点的研究证据单元”，而不是孤立的引用节点，帮助用户回答以下问题：
 
 | 能力 | 说明 |
 | --- | --- |
-| 论文解析 | 提取研究问题、核心主张、方法和实验设置 |
-| 主张—实验映射 | 将主要主张与数据、模型、基线、指标和结果对应起来 |
+| 论文解析 | 提取研究问题、核心论点、方法和实验设置 |
+| 论点—实验映射 | 将主要论点与数据、模型、基线、指标和结果对应起来 |
 | 研究方向收窄 | 用“对象 + 机制/现象 + 目的”定义可检索的窄方向，并列出同义词和排除项 |
 | 谱系检索 | 结合概念检索、后向引用和前向引用寻找潜在前驱与后续工作 |
 | 核心/邻近工作筛选 | 区分真正构成研究主线的论文与仅有主题相似的论文 |
@@ -22,7 +22,7 @@
 ## 分析流程
 
 1. 根据可获得的全文、摘要和元数据判定证据等级：`A`、`B` 或 `C`。
-2. 提取目标论文的研究问题、核心主张及其对应的实验验证。
+2. 提取目标论文的研究问题、核心论点及其对应的实验验证。
 3. 建立窄方向抽象，明确研究对象、机制/现象、目的、同义词和排除项。
 4. 先按概念检索候选论文，再通过后向引用和前向引用扩展候选集。
 5. 筛选核心谱系论文，将宽泛、相似、综述、基准或应用型工作放入邻近工作。
@@ -58,7 +58,7 @@ $tracing-research-lineages
 Use $tracing-research-lineages to analyze this paper and trace its research lineage.
 
 Paper: <paper title, URL, uploaded file, or identifier>
-Focus: <optional research direction, method, dataset, or claim>
+Focus: <optional research direction, method, dataset, or argument>
 Cutoff: <optional search cutoff date>
 ```
 
@@ -66,9 +66,18 @@ Cutoff: <optional search cutoff date>
 
 ## 部署指南
 
-本项目是 Codex Skill，不是独立运行的 Web 服务。仓库没有 Node.js、Python、数据库、端口或 Docker 运行时要求；部署的含义是把 Skill 目录放到 Codex 可发现的 Skill 路径中。
+### 方式一：让 Codex 帮助安装（推荐）
 
-### 方式一：本地安装到 Codex（推荐）
+在 Codex 中发送以下请求：
+
+```text
+请使用 `$skill-installer` 从以下 GitHub 仓库安装这个 Skill：
+https://github.com/shanyexia25/tracing-research-lineages
+```
+
+安装完成后新建 Codex 会话，然后使用 `$tracing-research-lineages` 调用。
+
+### 方式二：本地手动安装（可选）
 
 #### PowerShell
 
@@ -131,32 +140,6 @@ tracing-research-lineages/
     ├── research-protocol.md
     └── output-template.md
 ```
-
-### 方式二：上传到 OpenAI Skills API（可选）
-
-如果需要将 Skill 作为 API Skill 资源管理，可以将 Skill 文件打包为 ZIP，再通过 Skills API 上传。官方接口支持上传 Skill 目录或单个 ZIP 文件，详见 [Create a new skill](https://developers.openai.com/api/reference/python/resources/skills/methods/create)。
-
-打包示例：
-
-```powershell
-Compress-Archive -Path SKILL.md, agents, references `
-  -DestinationPath tracing-research-lineages.zip -Force
-```
-
-使用 Python SDK 上传：
-
-```python
-from openai import OpenAI
-
-client = OpenAI()
-
-with open("tracing-research-lineages.zip", "rb") as bundle:
-    skill = client.skills.create(files=bundle)
-
-print(skill.id)
-```
-
-该方式需要配置 `OPENAI_API_KEY` 并安装对应版本的 OpenAI Python SDK；对本地 Codex 使用者而言不是必需步骤。
 
 ## 项目结构
 
