@@ -1,4 +1,4 @@
 interface:
-  display_name: "Trace Research Lineages"
-  short_description: "Analyze papers and reconstruct research lineages"
-  default_prompt: "Use $tracing-research-lineages to analyze this paper and trace its research lineage."
+  display_name: "学术论文研究谱系追踪"
+  short_description: "分析论文、验证实验并重建研究发展谱系"
+  default_prompt: "请使用 $tracing-research-lineages 分析这篇论文，并用中文追踪其研究谱系。"

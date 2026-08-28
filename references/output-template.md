@@ -1,57 +1,66 @@
-# Output Template
+# 输出模板
 
-Use the following sections in this exact order. Place citations beside every supported claim, and label any analytical inference explicitly, for example `Inference:` or `Analytical inference:`.
+严格按以下顺序组织报告。最终报告默认使用中文；章节名称、字段名和表头使用下列中文名称。每个有证据支持的主张旁都放置引用，并明确标注分析性推断，例如 `分析性推断：`。论文标题使用“中文标题释义（原始标题）”格式；原始标题必须保留，中文释义不能替代原题。
 
-## 1. Paper Metadata
+## 1. 论文元数据
 
-Include original paper title, authors, venue, first public date, formal publication, links or identifiers, and evidence access grade.
+- `中文标题释义`：英文或其他语言标题的中文释义；无法可靠翻译时标为“待补”。
+- `原始论文标题`：保留论文发表记录中的原始标题。
+- `作者`
+- `发表载体`：期刊、会议、预印本平台或其他正式载体。
+- `首次公开日期`
+- `正式发表信息`
+- `链接或标识符`
+- `证据获取等级`
 
-## 2. One-Sentence Synthesis
+## 2. 一句话总结
 
-Summarize the paper's main contribution and role in the lineage in one sentence with citation support when available.
+用一句话概括论文的主要贡献及其在研究谱系中的位置；有依据时在句末放置引用。
 
-## 3. Research Problem and Core Claims
+## 3. 研究问题与核心主张
 
-State the research problem, then list the focal paper's core claims with citations.
+先说明研究问题，再列出目标论文的核心主张并附引用。
 
-## 4. Claim-Experiment Validation Matrix
+## 4. 主张—实验验证矩阵
 
-| ID | Claim | Experimental design | Data/models | Baselines | Metrics | Main result | Support strength |
+| 编号 | 核心主张 | 实验设计 | 数据集/模型 | 基线方法 | 评价指标 | 主要结果 | 证据支持强度 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 
-Each row must place an evidence citation in its `Support strength` or `Main result` cell; no row may leave both cells uncited.
+每行都必须在“证据支持强度”或“主要结果”单元格中放置证据引用；两者不能同时没有引用。
 
-## 5. Narrow Direction
+## 5. 研究方向限定
 
-Define the exact narrow-direction abstraction as `object + mechanism/phenomenon + purpose`, then include `Parent field`, `Synonyms`, `Scope`, and `Exclusions` as explicit fields.
+将精确的窄方向抽象定义为 `研究对象 + 机制/现象 + 目的`，并明确列出 `上位领域`、`同义词`、`范围` 和 `排除项`。
 
-## 6. Search Scope
+## 6. 检索范围
 
-Report these explicit fields: `Sources used`, `Concept queries`, `Backward citation tracing status`, `Forward citation tracing status`, `Screening criteria`, `Round 1 outcome`, `Round 2 outcome`, `Saturation status`, `Cutoff`, and `Limitations`. Mark `Saturation status: saturated` only after two consecutive rounds produce no new high-relevance core papers; if either round was not run, mark `Saturation status: unsaturated` and identify the unrun round.
+明确报告以下字段：`使用的来源`、`概念检索式`、`后向引用追踪状态`、`前向引用追踪状态`、`筛选标准`、`第一轮结果`、`第二轮结果`、`检索饱和状态`、`检索截止日期` 和 `局限性`。只有连续两轮都没有发现新的高相关核心论文时，才能标记 `检索饱和状态：已饱和`；如果任一轮未执行，则标记 `检索饱和状态：未饱和`，并指出未执行的是哪一轮。
 
-## 7. Core Timeline
+## 7. 核心时间线
 
-| No. | Paper | First public date | Formal publication | Stage role | Core innovation | Increment over predecessor | Relationship | Evidence grade |
+| 序号 | 论文（中文标题释义/原始标题） | 首次公开日期 | 正式发表信息 | 阶段角色 | 核心创新 | 相对前序工作的新增量 | 关系类型 | 证据等级 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 
-Required per-row comparative note: `Inherited basis: ...; Prior limitation: ...; New increment: ...; Relationship: ...`.
+每行都必须补充比较说明：`继承基础：……；既有限制：……；新增量：……；关系类型：……`。
 
-Use labels containing `direct` or `continuation` only when primary records show a citation, stated motivation, reused setup, or documented continuation; otherwise use `candidate predecessor`, `mechanistic analogue`, `parallel branch`, or `analytical inference` and state that the citation edge is unverified. Place an evidence citation beside every relationship label, especially labels containing `direct` or `continuation`.
+只有在原始论文记录显示存在引用、明确动机、复用实验设置或延续说明时，才使用 `直接继承` 或 `延续`。否则使用 `候选前驱`、`机制类比`、`并行分支` 或 `分析性推断`，并说明引用关系尚未核验。每个关系标签旁都要放置证据引用，尤其是 `直接继承` 或 `延续`。
 
-## 8. Adjacent Work
+关系标签只使用中文：`直接继承`、`延续`、`候选前驱`、`机制类比`、`并行分支`、`分析性推断`、`挑战`、`修正`。原始协议中的英文术语仅供维护者对照，不要复制到最终报告的标题、字段、表头或关系标签中。
 
-List excluded but relevant papers with concise exclusion reasons.
+## 8. 邻近工作
 
-## 9. Development Lineage
+列出被排除但仍有相关性的论文，并简要说明排除理由。
 
-Organize the narrative using these elements when supported by evidence:
+## 9. 发展谱系
 
-- origin
-- validation
-- method formation
-- extensions
-- applications
-- attacks/defenses
-- corrections
-- focal-paper positioning
-- evidence gaps
+在有证据支持时，使用以下要素组织叙述：
+
+- 起源
+- 验证
+- 方法形成
+- 扩展
+- 应用
+- 攻击/防御
+- 修正
+- 目标论文定位
+- 证据缺口

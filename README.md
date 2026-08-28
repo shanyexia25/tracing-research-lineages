@@ -32,17 +32,17 @@
 
 ## 输出结构
 
-最终报告按以下九个部分组织，章节名称与 `references/output-template.md` 保持一致：
+最终报告按以下九个部分组织，章节名称与 `references/output-template.md` 保持一致；章节、字段和表头默认使用中文。论文标题采用“中文标题释义（原始标题）”格式，保留原始标题以便检索和引用。
 
-1. `Paper Metadata`
-2. `One-Sentence Synthesis`
-3. `Research Problem and Core Claims`
-4. `Claim-Experiment Validation Matrix`
-5. `Narrow Direction`
-6. `Search Scope`
-7. `Core Timeline`
-8. `Adjacent Work`
-9. `Development Lineage`
+1. `论文元数据`
+2. `一句话总结`
+3. `研究问题与核心主张`
+4. `主张—实验验证矩阵`
+5. `研究方向限定`
+6. `检索范围`
+7. `核心时间线`
+8. `邻近工作`
+9. `发展谱系`
 
 ## 使用方式
 
@@ -55,11 +55,11 @@ $tracing-research-lineages
 推荐的请求格式：
 
 ```text
-Use $tracing-research-lineages to analyze this paper and trace its research lineage.
+请使用 $tracing-research-lineages 分析这篇论文，并用中文追踪其研究谱系。
 
-Paper: <paper title, URL, uploaded file, or identifier>
-Focus: <optional research direction, method, dataset, or argument>
-Cutoff: <optional search cutoff date>
+论文：<论文标题、URL、上传文件或标识符>
+重点：<可选的研究方向、方法、数据集或论点>
+截止日期：<可选的检索截止日期>
 ```
 
 也可以直接说明希望分析的论文、研究方向或比较范围。若提供论文全文、可靠元数据和可访问的引用信息，谱系判断通常会更稳健。

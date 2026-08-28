@@ -32,17 +32,17 @@
 
 ## Output Structure
 
-The final report is organized into the following nine sections, matching `references/output-template.md`:
+The final report is organized into the following nine Chinese-named sections, matching `references/output-template.md` (English glosses are included here for readers of this document):
 
-1. `Paper Metadata`
-2. `One-Sentence Synthesis`
-3. `Research Problem and Core Claims`
-4. `Claim-Experiment Validation Matrix`
-5. `Narrow Direction`
-6. `Search Scope`
-7. `Core Timeline`
-8. `Adjacent Work`
-9. `Development Lineage`
+1. `论文元数据` (Paper Metadata)
+2. `一句话总结` (One-Sentence Synthesis)
+3. `研究问题与核心主张` (Research Problem and Core Claims)
+4. `主张—实验验证矩阵` (Claim-Experiment Validation Matrix)
+5. `研究方向限定` (Narrow Direction)
+6. `检索范围` (Search Scope)
+7. `核心时间线` (Core Timeline)
+8. `邻近工作` (Adjacent Work)
+9. `发展谱系` (Development Lineage)
 
 ## Usage
 

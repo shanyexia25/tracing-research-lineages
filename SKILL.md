@@ -3,42 +3,49 @@ name: tracing-research-lineages
 description: Use when a user supplies, uploads, links, or identifies an academic paper and asks about its research question, claims, experimental validation, related-paper timeline, comparative innovations, research lineage, or historical development.
 ---
 
-# Tracing Research Lineages
+# 学术论文研究谱系追踪
 
-## Core Principle
+## 核心原则
 
-Trace a paper as a claim-bearing research artifact, not as an isolated citation node. Prefer full text over abstract-only evidence, preserve original paper titles, and write the final answer in the user's language. Read [references/research-protocol.md](references/research-protocol.md) before searching or screening, and read [references/output-template.md](references/output-template.md) before drafting the response.
+把论文作为承载研究主张的证据单元来追踪，而不是孤立的引用节点。优先使用全文而不是仅摘要证据；论文原始标题保留原文，不要用中文翻译替换原题；最终报告使用用户指定的语言。用户使用中文时，章节标题、字段名、表头和比较说明统一使用中文，并在需要时为英文论文标题补充“中文标题释义”。开始检索或筛选前先阅读[研究协议](references/research-protocol.md)，起草报告前先阅读[输出模板](references/output-template.md)。
 
-## Workflow
+## 输出语言与标题规则
 
-1. Classify evidence access using the protocol and state any degraded mode up front.
-2. Extract the focal paper's research problem, core claims, and claim-to-experiment mapping from the fullest available text.
-3. Build a narrow direction abstraction: object + mechanism or phenomenon + purpose, with explicit scope, synonyms, and exclusions.
-4. Search by concept, then expand with backward and forward citation chaining. Use surveys only to discover candidates, then verify core facts from primary sources.
-5. Separate core papers from adjacent work. Keep only lineage-relevant papers in the core timeline and move broad or merely similar work to adjacent with reasons.
-6. Order core papers by first verifiable public date, while listing formal publication separately. Merge duplicate versions and mark unresolved date conflicts.
-7. For each core step, explain the inherited basis, prior limitation, new increment, and relationship label. Claim direct inheritance only with explicit evidence.
-8. Mark analytical inference explicitly, state uncertainty where evidence is partial, and never claim complete coverage without qualification.
+- 用户使用中文且未指定其他语言时，最终报告默认使用中文。
+- 九个章节名称、所有字段名、表头、逐行比较说明和关系标签，必须采用[输出模板](references/output-template.md)中的中文名称，不得只输出英文标签。
+- 论文标题使用“中文标题释义（原始标题）”格式；原始标题必须保留，中文释义不能替代原题或作为检索依据。
+- 论文原题、作者名、期刊/会议名、方法名、数据集名、指标名和检索关键词可保留其正式英文写法，但首次出现时应补充中文说明。
 
-| Need | Minimum action |
+## 分析流程
+
+1. 根据协议判定证据可获得性，并在报告开头说明任何降级模式。
+2. 从最完整的可用文本中提取目标论文的研究问题、核心主张及其与实验的对应关系。
+3. 建立窄方向抽象：“研究对象 + 机制/现象 + 目的”，并明确范围、同义词和排除项。
+4. 先按概念检索，再通过后向引用和前向引用追踪扩展候选集。综述只用于发现候选论文，核心事实必须回到原始论文记录核验。
+5. 区分核心论文与邻近工作。核心时间线只保留与谱系直接相关的论文，宽泛或仅主题相似的工作移至邻近工作并说明理由。
+6. 按最早可核验的公开日期排列核心论文，同时单独列出正式发表信息。合并同一工作的不同版本，并标出未解决的日期冲突。
+7. 对每个核心节点说明继承基础、既有限制、新增量和关系类型。只有存在明确证据时，才声称直接继承。
+8. 明确标注分析性推断；证据不完整时说明不确定性；没有充分依据时不要声称检索覆盖完整。
+
+| 关注事项 | 最低要求 |
 | --- | --- |
-| Best evidence | Prefer full text and verified metadata |
-| Validation | Map each major claim to supporting experiments |
-| Search | Concept queries plus backward/forward citation tracing |
-| Scope | Separate core lineage from adjacent work |
-| Chronology | Use first public date; list formal publication separately |
-| Reporting | Label relationships, cite support, expose uncertainty |
+| 最佳证据 | 优先使用全文和已核验的元数据 |
+| 验证 | 将每个主要主张与支持它的实验对应起来 |
+| 检索 | 概念检索加后向/前向引用追踪 |
+| 范围 | 区分核心谱系与邻近工作 |
+| 时间顺序 | 使用首次公开日期，单独列出正式发表信息 |
+| 报告 | 标明关系类型，给出证据引用，暴露不确定性 |
 
-Example: For a multimodal jailbreak paper, identify its exact attack mechanism, map each claim to experiments, trace predecessor attack formulations and later defenses by citation chaining, then place benchmarks or loosely related safety work in adjacent rather than core lineage.
+例如，对于一篇多模态越狱论文，应识别其确切攻击机制，将每个主张与实验对应起来，通过引用追踪寻找前驱攻击形式和后续防御工作，再把基准测试或联系较弱的安全工作放入邻近工作，而不是核心谱系。
 
-Common mistakes: treating surveys as evidence, using only publication venue dates, collapsing adjacent work into the core chain, inferring direct inheritance without proof, or implying exhaustive coverage despite missing full text or limited search access.
+常见错误包括：把综述直接当作证据，只使用发表载体日期，把邻近工作硬塞进核心链条，在没有证明时推断直接继承，或在缺少全文、检索来源受限时暗示已经穷尽所有相关工作。
 
-## Quality Gates
+## 质量门槛
 
-- Both reference files were read and followed for this run.
-- When drafting, copy all required output-template section names and table columns verbatim; do not abbreviate or rename them.
-- Every supported claim has a citation, and every inference is labeled as analysis.
-- Claim-to-experiment mapping is explicit for the focal paper.
-- The narrow direction excludes nearby but non-core lines.
-- Core timeline dates use earliest verifiable public versions, with conflicts noted.
-- The answer states saturation status, uncertainty, cutoff limits, and no unqualified completeness claim.
+- 本次运行已阅读并遵循两份参考文件。
+- 起草时逐字采用输出模板中的中文章节名称、字段名和表头，不缩写、不改名；论文原始标题按“中文标题释义（原始标题）”格式呈现。
+- 每个有证据支持的主张都有引用，每个推断都明确标为“分析性推断”。
+- 目标论文的主张—实验对应关系清晰可见。
+- 窄方向排除了相邻但不属于核心主线的研究。
+- 核心时间线使用最早可核验的公开版本，并注明冲突。
+- 报告说明检索饱和状态、不确定性、截止日期和覆盖限制，不做无条件的完整性声明。

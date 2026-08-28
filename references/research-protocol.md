@@ -1,62 +1,62 @@
-# Research Protocol
+# 研究协议
 
-## Evidence Access
+## 证据获取
 
-- `A`: inspected full text plus verified metadata.
-- `B`: reliable abstract plus metadata.
-- `C`: secondary-only lead.
+- `A`：已检查全文，并核验元数据。
+- `B`：有可靠摘要和元数据。
+- `C`：只有二手来源线索。
 
-Use `A` whenever possible. If forced into `B` or `C`, state the downgrade, limit claim strength, and avoid overconfident lineage assertions.
+尽可能使用 `A`。如果只能使用 `B` 或 `C`，要说明证据降级、降低主张强度，并避免过度自信的谱系判断。
 
-## Direction Abstraction
+## 方向抽象
 
-Represent the narrow direction as `object + mechanism/phenomenon + purpose`.
+将窄方向表示为 `研究对象 + 机制/现象 + 目的`。
 
-- Parent field: the broader area that contains the direction.
-- Synonyms: alternate names, task labels, or neighboring terminology worth searching.
-- Exclusions: nearby topics, benchmark-only work, or application-only variants that should not be treated as core lineage without stronger evidence.
+- 上位领域：包含该方向的更宽泛研究领域。
+- 同义词：值得用于检索的别名、任务名称或邻近术语。
+- 排除项：如果没有更强证据，不应视为核心谱系的邻近主题、仅基准测试工作或仅应用型变体。
 
-## Search Expansion
+## 检索扩展
 
-Build query families from the focal paper's problem, method terms, object, mechanism, purpose, synonyms, and cited baselines. Expand through backward citation tracing and forward citation tracing from high-relevance papers. Surveys only discover candidates; they do not establish lineage facts by themselves.
+根据目标论文的问题、方法术语、研究对象、机制、目的、同义词和引用的基线方法建立检索式族。从高相关论文出发，进行后向引用追踪和前向引用追踪。综述只能帮助发现候选论文，不能单独确立谱系事实。
 
-## Screening
+## 筛选
 
-Screen papers for these roles:
+按以下角色筛选论文：
 
-- origins
-- new evidence
-- method formation
-- generalization
-- operationalization
-- attack/defense
-- correction/challenge
+- 起源
+- 新证据
+- 方法形成
+- 泛化
+- 工程化落地
+- 攻击/防御
+- 修正/挑战
 
-Move broad, similar, survey, benchmark, and weak papers to adjacent work with reasons.
+将宽泛、相似、综述、基准测试和证据薄弱的论文移至邻近工作，并说明理由。
 
-## Dates, Versions, and Deduplication
+## 日期、版本与去重
 
-Use the earliest verifiable public version for timeline ordering. Record formal publication separately. Merge preprint, conference, journal, and revision versions of the same work into one timeline entry, and mark unresolved metadata conflicts explicitly. Before reporting, run a final monotonic chronology check: normalize dates as `exact`, `month`, `unknown`, or `inferred`, sort by earliest verifiable public date, and mark conflicts. Never let a later paper challenge or correct an earlier paper in reverse temporal order. Direct, continuation, challenge, and correction labels must respect both temporal direction and evidentiary direction.
+使用最早可核验的公开版本排列时间线，单独记录正式发表信息。将同一工作的预印本、会议版、期刊版和修订版合并为一个时间线条目，并明确标出未解决的元数据冲突。报告前进行最终的单调时间顺序检查：将日期规范化为 `exact`（精确日期）、`month`（月份）、`unknown`（未知）或 `inferred`（推断），按最早可核验的公开日期排序并标出冲突。不得让后发表的论文在时间顺序相反的情况下挑战或修正更早的论文。`直接继承`、`延续`、`挑战` 和 `修正` 等关系标签必须同时符合时间方向和证据方向。
 
-## Comparative Innovation
+## 创新比较
 
-For each core paper, record:
+对每篇核心论文记录：
 
-- inherited basis
-- prior limitation
-- new increment
-- relationship type
+- 继承基础
+- 既有限制
+- 新增量
+- 关系类型
 
-Reserve labels containing `direct` or `continuation` for explicit evidence visible in primary records: a citation, stated motivation, reused setup, or documented continuation. When only mechanism similarity or concept search supports the link, label it `candidate predecessor`, `mechanistic analogue`, `parallel branch`, or `analytical inference`, and state that the citation edge is unverified.
+只有原始论文记录明确显示引用、动机、复用设置或延续说明时，才使用 `直接继承` 或 `延续`。如果关系只有机制相似性或概念检索支持，则使用 `候选前驱`、`机制类比`、`并行分支` 或 `分析性推断`，并说明引用关系尚未核验。英文关系术语仅用于维护者对照，不复制到最终报告。
 
-## Saturation and Reporting
+## 饱和与报告
 
-Treat the search as saturated only after two consecutive rounds with no new high-relevance core papers. Record the cutoff date, sources searched, query families used, backward/forward tracing status, screening criteria, and limitations.
+只有连续两轮都没有发现新的高相关核心论文时，才将检索视为已饱和。记录检索截止日期、使用的来源、检索式族、后向/前向追踪状态、筛选标准和局限性。最终报告中使用 `已饱和` 或 `未饱和`，不要只输出英文状态值。
 
-## Degraded Modes
+## 降级模式
 
-- abstract-only: use cautious claim summaries, weaker support labels, and explicit uncertainty.
-- An abstract without verified metadata must not receive plain `B`; use `B-degraded` (`abstract-only; metadata unavailable`) and state the missing metadata.
-- no web: rely on provided files and local metadata only; state that citation chaining could not be completed externally.
-- ambiguous direction: present candidate abstractions, explain the ambiguity, and avoid over-pruning.
-- no supported predecessor: report that no supported predecessor was found yet, distinguish absence of evidence from evidence of absence, and keep adjacent candidates visible.
+- 仅摘要：使用谨慎的主张摘要、较弱的支持标签，并明确说明不确定性。
+- 没有已核验元数据的摘要不能直接标为 `B`；应使用 `B-degraded`（`abstract-only; metadata unavailable`），并说明缺失哪些元数据。
+- 无法联网：只能依赖用户提供的文件和本地元数据，并说明无法在外部完成引用链追踪。
+- 方向含混：呈现候选抽象、解释歧义，避免过度删减候选论文。
+- 没有有支持证据的前驱：报告“暂未找到有支持证据的前驱”，区分“缺少证据”和“证明不存在”，并保留邻近候选。
