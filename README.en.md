@@ -12,7 +12,7 @@
 | --- | --- |
 | Paper analysis | Extract the research problem, core arguments, methods, and experimental setup |
 | Argument–experiment mapping | Connect major arguments to data, models, baselines, metrics, and results |
-| Narrow-direction definition | Define a searchable direction as “object + mechanism/phenomenon + purpose,” with synonyms and exclusions |
+| Core-direction definition | Define a searchable direction as “object + core mechanism + purpose,” with mechanism-first synonyms and exclusions |
 | Lineage search | Combine concept search with backward and forward citation tracing to find possible predecessors and follow-up work |
 | Core/adjacent screening | Separate papers that form the actual research line from papers that are only topically similar |
 | Timeline reconstruction | Order work by its earliest verifiable public date and merge preprint, conference, journal, and revision versions |
@@ -23,7 +23,7 @@
 
 1. Classify the evidence level from the available full text, abstracts, and metadata: `A`, `B`, or `C`.
 2. Extract the focal paper's research problem, core arguments, and argument-to-experiment mapping.
-3. Build a narrow-direction abstraction with the object, mechanism/phenomenon, purpose, synonyms, and exclusions.
+3. Build a core-direction abstraction with the object, core mechanism, purpose, mechanism-first synonyms, and exclusions.
 4. Search by concept first, then expand the candidate set through backward and forward citation tracing.
 5. Screen the candidate papers, keeping lineage-relevant work in the core timeline and moving broad, similar, survey, benchmark, or application work to adjacent work.
 6. Reconstruct the timeline by earliest verifiable public date while recording formal publication separately.
@@ -38,7 +38,7 @@ The final report is organized into the following nine Chinese-named sections, ma
 2. `一句话总结` (One-Sentence Synthesis)
 3. `研究问题与核心主张` (Research Problem and Core Claims)
 4. `主张—实验验证矩阵` (Claim-Experiment Validation Matrix)
-5. `研究方向限定` (Narrow Direction)
+5. `核心方向限定` (Core Direction)
 6. `检索范围` (Search Scope)
 7. `核心时间线` (Core Timeline)
 8. `邻近工作` (Adjacent Work)
